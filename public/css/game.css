@@ -1,0 +1,16 @@
+#arena {
+  border: 1px solid black;
+  position: relative;
+}
+
+#knight {
+  width: 94px;
+  height: 85px;
+  position: absolute;
+}
+
+#knight img {
+  background-image: url('../../img/knight_standing.gif');
+  width: 100%;
+  height: 100%;
+}
