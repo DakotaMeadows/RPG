@@ -7,6 +7,7 @@ class CreateCharacters < ActiveRecord::Migration
       t.integer :critical_strike
       t.integer :stamina
       t.integer :fervor
+      t.references :user
     end
   end
 end
