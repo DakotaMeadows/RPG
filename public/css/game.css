@@ -1,6 +1,6 @@
 #arena {
   border: 1px solid black;
-  position: relative;
+  position: absolute;
 }
 
 #knight {
@@ -17,10 +17,22 @@
   position: absolute;
 }
 
-#healthbar {
-  position: absolute;
+#bars {
 }
+
+/*#healthbar[value] {
+  position: relative;
+  border:none;
+  background-color:red;
+}
+
+#powerbar {
+  position:relative;
+  background-color:yellow;
+}*/
 
 #potion {
   position: absolute;
+  height: 50px;
+  width: 50px;
 }

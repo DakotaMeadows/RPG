@@ -3,7 +3,6 @@ $(document).ready(function() {
   knight = new Knight(200, 200, arena);
   dragons = [new Dragon(arena), new Dragon(arena), new Dragon(arena)];
   potions = [];
-  potion = new Potion(arena);
   lastSpawnTime = Date.now();
   lastPotion = Date.now();
   healthbar = document.getElementById("healthbar");
@@ -27,9 +26,9 @@ $(document).ready(function() {
       dragons.forEach(function(dragon) {
         dragon.track(knight);
         dragon.move();
-        if (dragon.x - dragon.width / 2  === knight.x) {
-          knight.health -= 5;
-          healthbar.value -= 5;
+        if ((dragon.x >= knight.x - knight.width / 2) && (dragon.x <= knight.x + knight.width / 2) && (dragon.y >= knight.y - knight.height / 2) && (dragon.y <= knight.y + knight.height / 2)) {
+          knight.health -= 0.0;
+          healthbar.value -= 0.05;
         };
       });
       if (Date.now() - lastSpawnTime > 1000) {
@@ -43,16 +42,24 @@ $(document).ready(function() {
         lastPotion = Date.now();
       }
       potions.forEach(function(potion) {
-        if (potion.x >= knight.x && potion.x <= knight.x + knight.width / 2 && potion.y >= knight.y - knight.height / 2 && potion.y <= knight.y + knight.height / 2) {
+        if ((potion.x >= knight.x - knight.width / 2) && (potion.x <= knight.x + knight.width / 2) && (potion.y >= knight.y - knight.height / 2) && (potion.y <= knight.y + knight.height / 2)) {
           potion.destroy();
           knight.health += 20;
-          healthbar += 20;
+          if (healthbar.value >= 80) {
+            healthbar.value = 100;
+            knight.health = 100;
+          }
+          else{
+            healthbar.value += 20;
+            knight.healthbar += 20;
+          };
           potions = _(potions).reject(function(potion){return potion.drank});
         }
       });
       if (knight.health < 0) {
         knight.die();
         Mousetrap.reset();
+        $('#arena').fadeOut('slow');
       } ;
     });
 } )
