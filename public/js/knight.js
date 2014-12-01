@@ -2,6 +2,7 @@ function Knight(x, y, arena) {
   this.arena = arena;
   this.x = x;
   this.y = y;
+  this.health = 100;
   this.dir = "none";
   this.$sprite = $('<div id="knight"><img src="../../public/img/knight_standing.gif"/></div>');
   $('#arena').append(this.$sprite);
@@ -25,16 +26,16 @@ Knight.prototype.move = function() {
     $('#knight img').attr('src', '../../public/img/knight_walking.gif');
     switch (this.dir) {
     case 'down':
-      this.y += 25;
+      this.y += 30;
       break;
     case 'up':
-      this.y -= 25;
+      this.y -= 30;
       break;
     case 'left':
-      this.x -= 25;
+      this.x -= 30;
       break;
     case 'right':
-      this.x += 25;
+      this.x += 30;
       break;
     }
     if (((this.y - this.height / 2) < -30) ||
