@@ -27,7 +27,7 @@ $(document).ready(function() {
         dragon.track(knight);
         dragon.move();
         if ((dragon.x >= knight.x - knight.width / 2) && (dragon.x <= knight.x + knight.width / 2) && (dragon.y >= knight.y - knight.height / 2) && (dragon.y <= knight.y + knight.height / 2)) {
-          knight.health -= 0.0;
+          knight.health -= 0.05;
           healthbar.value -= 0.05;
         };
       });
