@@ -1,7 +1,7 @@
 function Potion(arena) {
   this.arena = arena;
   drank = false;
-  this.$sprite = $('<div id="potion"><img src="../../public/img/potion.gif"/></div>');
+  this.$sprite = $('<div id="potion"><img src="/img/potion.gif"/></div>');
   $('#arena').append(this.$sprite);
   this.height = this.$sprite.height();
   this.width = this.$sprite.width();

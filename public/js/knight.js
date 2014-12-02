@@ -3,8 +3,9 @@ function Knight(x, y, arena) {
   this.x = x;
   this.y = y;
   this.health = 100;
+  this.power = 0;
   this.dir = "none";
-  this.$sprite = $('<div id="knight"><img src="../../public/img/knight_standing.gif"/></div>');
+  this.$sprite = $('<div id="knight"><img src="/img/knight_standing.gif"/></div>');
   $('#arena').append(this.$sprite);
   this.height = this.$sprite.height();
   this.width = this.$sprite.width();
@@ -23,7 +24,7 @@ Knight.prototype.updateSpritePosition = function() {
 Knight.prototype.move = function() {
   var old_x = this.x;
   var old_y = this.y;
-    $('#knight img').attr('src', '../../public/img/knight_walking.gif');
+    $('#knight img').attr('src', '/img/knight_walking.gif');
     switch (this.dir) {
     case 'down':
       this.y += 30;
@@ -50,10 +51,10 @@ Knight.prototype.move = function() {
 }
 
 Knight.prototype.attack = function() {
-  $('#knight img').attr('src', '../../public/img/knight_attacking.gif');
+  $('#knight img').attr('src', '/img/knight_attacking.gif');
   this.dir = "none";
 }
 
 Knight.prototype.die = function() {
-  $('#knight img').attr('src', '../../public/img/knight_dead.gif');
+  $('#knight img').attr('src', '/img/knight_dead.gif');
 }

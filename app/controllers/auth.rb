@@ -1,5 +1,5 @@
 get '/' do
-  redirect('/signup')
+  erb :homepage
 end
 
 get '/login' do
@@ -11,7 +11,7 @@ post '/login' do
 
   if user
     session[:user_id] = user.id
-    redirect('/posts')
+    redirect('/homepage')
   else
     set_error("Username not found or password incorrect.")
     redirect('/login')

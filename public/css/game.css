@@ -36,3 +36,14 @@
   height: 50px;
   width: 50px;
 }
+
+#lightning {
+  width:1000px;
+  height:500px;
+}
+
+#lightning img {
+  height: 100%;
+  width:100%;
+  visibility: hidden;
+}

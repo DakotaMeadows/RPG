@@ -1,0 +1,52 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nerds And Dragons</title>
+    <link rel="stylesheet" href="css/foundation.css" />
+    <link rel="stylesheet" href="/css/home.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="js/vendor/modernizr.js"></script>
+    <script src="js/backstretch.js"></script>
+    <script src="js/application.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Sigmar+One' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,700italic' rel='stylesheet' type='text/css'>
+
+  </head>
+  <body>
+    <div id="wrapper">
+      <nav class="top-bar" data-topbar role="navigation">
+        <section class="top-bar-section">
+          <!-- Right Nav Section -->
+          <ul class="right">
+            <li class="active"><a href="/play">Play</a></li>
+            <li class="active"><a href="/login">Login</a></li>
+          </ul>
+        </section>
+      </nav>
+      <div class="row">
+        <div class="large-4 columns"></div>
+        <div class="large-4 large-centered columns">
+          <p class="title"><h1 id="nerd_letters">NERDS</h1><h3>and</h3><h1 id="fire_letters">DRAGONS</h1></p>
+        </div>
+        <div class="large-4 columns"></div>
+      <div class="row">
+        <div class="large-4 columns"></div>
+        <div class="large-4 large-centered columns">
+        <form class="signup" action='/signup' method="POST">
+          User:
+          <input type="text" name="user[name]">
+          Password:
+          <input type="password" name="user[password]">
+          Password:
+          <input type="password" name="user[password_confirmation]">
+          <input type="submit" value="ENTER">
+        </form>
+        </div>
+        <div class="large-4 columns"></div>
+      </div>
+    </div>
+
+  </body>
+</html>

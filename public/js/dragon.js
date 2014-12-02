@@ -1,8 +1,8 @@
 function Dragon(arena) {
-   this.arena = arena;
-   this.dir = "left";
-   this.isAlive = true;
-  this.$sprite = $('<div id="dragon"><img src="../../public/img/dragon.gif"/></div>');
+  this.arena = arena;
+  this.dir = "left";
+  this.isAlive = true;
+  this.$sprite = $('<div id="dragon"><img src="/img/dragon.gif"/></div>');
   $('#arena').append(this.$sprite);
   this.height = this.$sprite.height();
   this.width = this.$sprite.width();

@@ -6,6 +6,7 @@ $(document).ready(function() {
   lastSpawnTime = Date.now();
   lastPotion = Date.now();
   healthbar = document.getElementById("healthbar");
+  powerbar = document.getElementById("powerbar");
 
    ['down', 'up', 'left', 'right'].forEach(function(dir) {
     Mousetrap.bind(dir, function() {
@@ -22,7 +23,29 @@ $(document).ready(function() {
     }});
    }, 'keyup')
 
+   Mousetrap.bind('shift', function () {
+    if (knight.power === 100) {
+      knight.power = 0;
+      powerbar.value = 0;
+      dragons.forEach(function(dragon) {
+        dragon.destroy();
+        dragons = _(dragons).reject(function(dragon){return dragon});
+      })
+      $('#arena').append('<div id="lightning"><img src="/img/lightning.gif"/></div>')
+      $('#lightning').delay(500).fadeOut('slow');
+    }
+   })
+
     setInterval(function() {
+      if (knight.power < 100) {
+        knight.power += 1;
+        powerbar.value += 1;
+        dragons.forEach(function(dragon) {
+          dragon.destroy();
+          dragons = _(dragons).reject(function(dragon){return dragon});
+        })
+
+      };
       dragons.forEach(function(dragon) {
         dragon.track(knight);
         dragon.move();
