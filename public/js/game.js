@@ -9,6 +9,7 @@ $(document).ready(function() {
   lastPotion = Date.now();
   healthbar = document.getElementById("healthbar");
   powerbar = document.getElementById("powerbar");
+  victory = false;
 
    ['down', 'up', 'left', 'right'].forEach(function(dir) {
     Mousetrap.bind(dir, function() {
@@ -87,11 +88,11 @@ $(document).ready(function() {
       });
       if (Date.now() - startTime > 1000) {
         if (bossMode === false) {
-          boss = new Boss(0, 0, arena);
+          boss = new Boss(700, 150, arena);
         };
         bossMode = true;
-        // boss.track(knight);
-        // boss.move();
+        boss.track(knight);
+        boss.move();
       }
       if (knight.health <= 0) {
         knight.die();
