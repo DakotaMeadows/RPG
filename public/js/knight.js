@@ -3,7 +3,9 @@ function Knight(x, y, arena) {
   this.x = x;
   this.y = y;
   this.health = 100;
+  this.damage = 10;
   this.power = 0;
+  this.specialDamage = 20;
   this.dir = "none";
   this.$sprite = $('<div id="knight"><img src="/img/knight_standing.gif"/></div>');
   $('#arena').append(this.$sprite);
