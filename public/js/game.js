@@ -49,7 +49,7 @@ $(document).ready(function() {
     }
    })
 
-    setInterval(function() {
+   setInterval(function() {
       if (knight.power < 100) {
         knight.power += 0.1;
         powerbar.value += 0.1;
@@ -92,7 +92,7 @@ $(document).ready(function() {
         }
       });
 
-      if (Date.now() - startTime > 1000) {
+      if (Date.now() - startTime > 100000) {
         if (bossMode === false) {
           boss = new Boss(700, 150, arena);
         };
@@ -101,11 +101,17 @@ $(document).ready(function() {
           boss.move();
       }
 
-      if (knight.health <= 0) {
+      if (knight.health <= 0) { //This is the problem!!!!
         knight.die();
         Mousetrap.reset();
         // $('#arena').fadeOut('slow');
-      } ;
-    });
+      }
+
+      // if (knight.health <= 0) {
+      //   knight.die();
+      //   Mousetrap.reset();
+      //   // $('#arena').fadeOut('slow');
+      // } ;
+  });
 } )
 

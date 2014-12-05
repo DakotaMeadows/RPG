@@ -2,6 +2,7 @@ function Knight(x, y, arena) {
   this.arena = arena;
   this.x = x;
   this.y = y;
+  this.isAlive = true;
   this.health = 100;
   this.damage = 10;
   this.power = 0;
@@ -58,5 +59,6 @@ Knight.prototype.attack = function() {
 }
 
 Knight.prototype.die = function() {
+  this.isAlive = false;
   $('#knight img').attr('src', '/img/knight_dead.gif');
 }
