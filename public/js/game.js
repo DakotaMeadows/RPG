@@ -3,7 +3,7 @@ $(document).ready(function() {
   knight = new Knight(200, 200, arena);
   dragons = [new Dragon(arena), new Dragon(arena), new Dragon(arena)];
   potions = [];
-  bossMode = true;
+  bossMode = false;
   startTime = Date.now();
   lastSpawnTime = Date.now();
   lastPotion = Date.now();
@@ -23,6 +23,7 @@ $(document).ready(function() {
     if (bossMode) {
       if (boss.x >= knight.x && boss.x <= knight.x + knight.width / 2 && boss.y >= knight.y - knight.height / 2 && boss.y <= knight.y + knight.height / 2) {
         boss.health -= knight.damage;
+        bosshealthbar.value -= knight.damage;
       }
     }
     dragons.forEach(function(dragon) {
@@ -36,9 +37,10 @@ $(document).ready(function() {
     if (knight.power >= 100) {
       knight.power = 0;
       powerbar.value = 0;
-      // if (bossMode === true) {
+      if (bossMode === true) {
       boss.health -= knight.specialDamage;
-      // }
+      bosshealthbar.value -= knight.specialDamage;
+      }
       dragons.forEach(function(dragon) {
         dragon.destroy();
         dragons = _(dragons).reject(function(dragon){return dragon});
@@ -60,6 +62,7 @@ $(document).ready(function() {
           healthbar.value -= 0.05;
         };
       });
+
       if (!bossMode) {
         if (Date.now() - lastSpawnTime > 1000) {
         dragons.push(new Dragon(arena));
@@ -73,19 +76,6 @@ $(document).ready(function() {
         }
       }
 
-      if (bossMode) { //lol hacky - can make if/else w/potions outside
-        dragons.forEach(function(dragon) { //destroy dragons on the board when hypothetical boss mode activation is triggered
-            dragon.destroy();
-            dragons = _(dragons).reject(function(dragon){return !dragon.isAlive});
-          });
-
-        if (Date.now() - lastPotion > 4000) {
-          if (Math.random() * 10 > 5){
-            potions.push(new Potion(arena));
-          };
-          lastPotion = Date.now();
-        }
-      }
       potions.forEach(function(potion) {
         if ((potion.x >= knight.x - knight.width / 2) && (potion.x <= knight.x + knight.width / 2) && (potion.y >= knight.y - knight.height / 2) && (potion.y <= knight.y + knight.height / 2)) {
           potion.destroy();
@@ -101,14 +91,16 @@ $(document).ready(function() {
           potions = _(potions).reject(function(potion){return potion.drank});
         }
       });
+
       if (Date.now() - startTime > 1000) {
         if (bossMode === false) {
           boss = new Boss(700, 150, arena);
         };
-        bossMode = true;
-        boss.track(knight);
-        boss.move();
+          bossMode = true;
+          boss.track(knight);
+          boss.move();
       }
+
       if (knight.health <= 0) {
         knight.die();
         Mousetrap.reset();
