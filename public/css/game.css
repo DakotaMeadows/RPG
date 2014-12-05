@@ -25,16 +25,18 @@ progress {
     background-color: #f3f3f3;
     border: 0;
     height: 14px;
-    /*border-radius: 9px;*/
 }
 
 #bars {
-  position:relative;
+  position:fixed;
+  background:none;
+  width:100%;
 }
 
 #bosshealthbar {
-  float:right;
-  margin-right: 1%;
+  position: absolute;
+  right:9%;
+  top:22%;
   background-color:red;
 }
 
@@ -54,3 +56,4 @@ progress {
   width: 100%;
   display: none;
 }
+
