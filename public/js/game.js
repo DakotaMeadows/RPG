@@ -99,19 +99,17 @@ $(document).ready(function() {
           bossMode = true;
           boss.track(knight);
           boss.move();
-      }
+      };
 
       if (knight.health <= 0) { //This is the problem!!!!
+        dragons.forEach(function(dragon) {
+          dragon.destroy();
+          dragons = _(dragons).reject(function(dragon){return !dragon.isAlive});
+        });
         knight.die();
         Mousetrap.reset();
         // $('#arena').fadeOut('slow');
       }
-
-      // if (knight.health <= 0) {
-      //   knight.die();
-      //   Mousetrap.reset();
-      //   // $('#arena').fadeOut('slow');
-      // } ;
   });
 } )
 
