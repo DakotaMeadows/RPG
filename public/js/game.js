@@ -9,6 +9,7 @@ $(document).ready(function() {
   lastPotion = Date.now();
   healthbar = document.getElementById("healthbar");
   powerbar = document.getElementById("powerbar");
+  bosshealthbar = document.getElementById("bosshealthbar");
   victory = false;
 
    ['down', 'up', 'left', 'right'].forEach(function(dir) {

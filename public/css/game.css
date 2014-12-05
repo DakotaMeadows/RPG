@@ -21,8 +21,21 @@
   width: 326px;
 }
 
+progress {
+    background-color: #f3f3f3;
+    border: 0;
+    height: 14px;
+    /*border-radius: 9px;*/
+}
+
 #bars {
-  position:absolute;
+  position:relative;
+}
+
+#bosshealthbar {
+  float:right;
+  margin-right: 1%;
+  background-color:red;
 }
 
 #potion {
