@@ -1,7 +1,7 @@
 function Boss(x, y, arena) {
   this.arena = arena;
   this.dir = "left";
-  this.isAlive = true;
+  this.isAlive = false;
   this.health = 100;
   this.$sprite = $('<div id="boss"><img src="/img/boss_standing.gif"/></div>');
   $('#arena').append(this.$sprite);

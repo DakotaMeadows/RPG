@@ -73,7 +73,12 @@ $(document).ready(function() {
         }
       }
 
-      if (bossMode) {
+      if (bossMode) { //lol hacky - can make if/else w/potions outside
+        dragons.forEach(function(dragon) { //destroy dragons on the board when hypothetical boss mode activation is triggered
+            dragon.destroy();
+            dragons = _(dragons).reject(function(dragon){return !dragon.isAlive});
+          });
+
         if (Date.now() - lastPotion > 4000) {
           if (Math.random() * 10 > 5){
             potions.push(new Potion(arena));
