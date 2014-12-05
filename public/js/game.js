@@ -3,7 +3,7 @@ $(document).ready(function() {
   knight = new Knight(200, 200, arena);
   dragons = [new Dragon(arena), new Dragon(arena), new Dragon(arena)];
   potions = [];
-  bossMode = false;
+  bossMode = true;
   startTime = Date.now();
   lastSpawnTime = Date.now();
   lastPotion = Date.now();
@@ -36,9 +36,9 @@ $(document).ready(function() {
     if (knight.power >= 100) {
       knight.power = 0;
       powerbar.value = 0;
-      if (bossMode === true) {
+      // if (bossMode === true) {
       boss.health -= knight.specialDamage;
-      }
+      // }
       dragons.forEach(function(dragon) {
         dragon.destroy();
         dragons = _(dragons).reject(function(dragon){return dragon});
@@ -65,6 +65,15 @@ $(document).ready(function() {
         dragons.push(new Dragon(arena));
         lastSpawnTime = Date.now();
         };
+        if (Date.now() - lastPotion > 4000) {
+          if (Math.random() * 10 > 5){
+            potions.push(new Potion(arena));
+          };
+          lastPotion = Date.now();
+        }
+      }
+
+      if (bossMode) {
         if (Date.now() - lastPotion > 4000) {
           if (Math.random() * 10 > 5){
             potions.push(new Potion(arena));

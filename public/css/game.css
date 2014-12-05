@@ -27,6 +27,10 @@ progress {
     height: 14px;
 }
 
+progress:bosshealthbar {
+  background-color: red;
+}
+
 #bars {
   position:fixed;
   background:none;
@@ -37,7 +41,7 @@ progress {
   position: absolute;
   right:9%;
   top:22%;
-  background-color:red;
+  color:red;
 }
 
 #potion {

@@ -11,7 +11,6 @@ function Dragon(arena) {
   this.updateSpritePosition();
 }
 
-
 Dragon.prototype.updateSpritePosition = Knight.prototype.updateSpritePosition;
 Dragon.prototype.setDirection = Knight.prototype.setDirection;
 
